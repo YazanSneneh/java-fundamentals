@@ -3,8 +3,68 @@
  */
 package basiclibrary;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Random;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
+    }
+    // ........................................roll dice method............................................
+    public static int[] roll(int n){
+        int[] rollResult = new int[n];
+
+        for(int i=0; i<n; i++){
+            Random random = new Random();
+            int newRandom = random.nextInt(6);
+            rollResult[i] = newRandom+1;
+        }
+
+        return rollResult;
+    }
+
+// ........................................containsDuplicates...............................................
+    public boolean containsDuplicates(int[] numbers){
+        Set<Integer> newSet = new HashSet<>();
+          for (int n : numbers){
+              newSet.add(n);
+          }
+        return newSet.size() != numbers.length;
+    }
+
+// .....................................Calculating Averages...............................................
+    public int calculateAverage(int[] numbers){
+        int totalNumbers = numbers.length;
+        int sum = 0;
+
+        for(int i=0; i<totalNumbers; i++){
+            sum += numbers[i];
+        }
+        return sum/totalNumbers;
+    }
+// .....................................Arrays of Arrays...............................................
+    public int lowestAverage(int[][] numbersLists){
+
+        int totalArrays = numbersLists.length;
+        // int[] sumArray = new int[totalArrays];
+        int lowestAvg = 10000;
+        int lowestAvgsize = 0;
+
+        for(int i=0; i<totalArrays; i++){   // first loop, go through each list.
+            int sum = 0;
+            for (int number : numbersLists[i]){   // second loop go through items and add values to sum variable.
+                sum += number;
+            }
+
+// check for sum size and add it to lowestAvg and store it's length for calc the average
+            if(sum  < lowestAvg){
+                lowestAvg = sum;
+                lowestAvgsize = numbersLists[i].length;
+            }
+
+        }
+
+        return lowestAvg/lowestAvgsize;
     }
 }

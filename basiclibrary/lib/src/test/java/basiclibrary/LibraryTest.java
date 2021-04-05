@@ -7,8 +7,47 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
-        Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+    // .........................................................................test Roll
+    @Test
+    public  void testRoll(){
+        int rollTimes = 5;
+        int[] rollResult = Library.roll(rollTimes);
+//        Library rollObjectTest = new Library();
+        assertEquals("this test should return number of array length results 5", 5, rollResult.length);
+    }
+
+ // .........................................................................test containsDuplicates
+    @Test
+    public void containsDuplicates(){
+        int[] numbersList = {5,4,3,12,2}; // data to check if it has no duplicate.
+        int[] numbersList2 = {5,5,4,3,12,2,3}; // data to check if it has duplicate.
+
+        Library testContainsDuplicates = new Library();
+
+        assertEquals("this test contain no duplicate expected true", false, testContainsDuplicates.containsDuplicates(numbersList));
+
+        assertEquals("this test contain duplicate expected true", true, testContainsDuplicates.containsDuplicates(numbersList2));
+//
+    }
+
+    // .........................................................................test sum
+@Test public void testSum(){
+        int[] numbers = {5,5,5};
+
+        Library testSumObject = new Library();
+
+        assertEquals(" test average of {5,5,5} should return result 5", 5, testSumObject.calculateAverage(numbers));
+}
+    // .........................................................................test lowest Average
+    @Test public void testLowestAverageSum(){
+        int[][] numbersLists = {
+                {10, 10, 10, 10, 10, 10, 10},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        Library lowestAverageObject = new Library();
+        assertEquals("the lowest sum in the 2D array in this row {10, 10, 10, 10, 10, 10, 10}, average size should be 10", 10,lowestAverageObject.lowestAverage(numbersLists) );
     }
 }
