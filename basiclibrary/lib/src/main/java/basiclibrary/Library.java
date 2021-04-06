@@ -3,9 +3,10 @@
  */
 package basiclibrary;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Random;
+import java.util.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Library {
     public boolean someLibraryMethod() {
@@ -62,9 +63,64 @@ public class Library {
                 lowestAvg = sum;
                 lowestAvgsize = numbersLists[i].length;
             }
-
         }
 
         return lowestAvg/lowestAvgsize;
     }
+//............................................. Analyzing Weather Data .......................
+    public String analyzingWeatherData(int weeklyMonthTemperatures[][]){
+       //
+        int length = weeklyMonthTemperatures.length;
+        int min = weeklyMonthTemperatures[0][0];
+        int max = weeklyMonthTemperatures[0][0];
+        Set<Integer> uniqueTemp = new HashSet<>();
+         String returnResult = "";
+        // algo
+        for(int i=0; i<length; i++){ // iterate over 2D array
+            for(int j =0; j<weeklyMonthTemperatures[i].length; j++){
+                uniqueTemp.add(weeklyMonthTemperatures[i][j]); // Add items to set
+
+                if(weeklyMonthTemperatures[i][j] < min){ // check if min or max tem value
+                    min = weeklyMonthTemperatures[i][j];
+                }else if( weeklyMonthTemperatures[i][j] > max){
+                    max = weeklyMonthTemperatures[i][j];
+                }
+
+            }
+        }
+        // output
+        returnResult +="High: " + max + "%n Low: " + min + "%n";
+
+        for(int i=min; i<=max; i++){
+            //  uniqueTemp.get(i);
+            if(!uniqueTemp.contains(i)){ // check if temp not exist and report
+                returnResult += "Never saw temperature: " + i +"%n";
+            }
+        }
+     return returnResult;
+    }
+//................................................ tally .................................................
+   public  String  tally(ArrayList<String> votes){
+       Map<String,Integer> participants = new HashMap<>();
+       String winner = "";
+       int winnerTotalVotes = 0;
+
+       for(String vote : votes){ // add to map
+           if( participants.containsKey(vote)){
+               participants.put(vote, participants.get(vote)+1);
+           }else{
+               participants.put(vote, 1);
+           }
+       }
+
+       for(Map.Entry vote : participants.entrySet()){  // choose winner
+           if((int)vote.getValue()> winnerTotalVotes){
+
+               winnerTotalVotes = (int)vote.getValue();
+               winner = (String)vote.getKey();
+           }
+       }
+       System.out.println(winner + " received the most votes!");
+       return winner;
+   }
 }

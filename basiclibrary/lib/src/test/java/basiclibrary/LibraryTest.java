@@ -5,9 +5,9 @@ package basiclibrary;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import java.util.ArrayList;
 public class LibraryTest {
-    // .........................................................................test Roll
+    // .....................................test Roll ....................................
     @Test
     public  void testRoll(){
         int rollTimes = 5;
@@ -16,7 +16,7 @@ public class LibraryTest {
         assertEquals("this test should return number of array length results 5", 5, rollResult.length);
     }
 
- // .........................................................................test containsDuplicates
+ // .....................................test contains Duplicates....................................
     @Test
     public void containsDuplicates(){
         int[] numbersList = {5,4,3,12,2}; // data to check if it has no duplicate.
@@ -30,7 +30,7 @@ public class LibraryTest {
 //
     }
 
-    // .........................................................................test sum
+    // .....................................test sum ....................................
 @Test public void testSum(){
         int[] numbers = {5,5,5};
 
@@ -38,7 +38,7 @@ public class LibraryTest {
 
         assertEquals(" test average of {5,5,5} should return result 5", 5, testSumObject.calculateAverage(numbers));
 }
-    // .........................................................................test lowest Average
+    // .........................................test lowest Average ................................
     @Test public void testLowestAverageSum(){
         int[][] numbersLists = {
                 {10, 10, 10, 10, 10, 10, 10},
@@ -49,5 +49,40 @@ public class LibraryTest {
 
         Library lowestAverageObject = new Library();
         assertEquals("the lowest sum in the 2D array in this row {10, 10, 10, 10, 10, 10, 10}, average size should be 10", 10,lowestAverageObject.lowestAverage(numbersLists) );
+    }
+
+    @Test public void testAnalyzingWeatherData(){
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        Library analyzeDataObject = new Library();
+
+        assertEquals("the method expected result :", "High: " + 72 + "%n Low: " + 51 + "%n" +"Never saw temperature: " + 63 +"%n"+ "Never saw temperature: " + 67 +"%n"+ "Never saw temperature: " + 68 +"%n"+"Never saw temperature: " + 69 +"%n", analyzeDataObject.analyzingWeatherData(weeklyMonthTemperatures));
+    }
+//    ........................................ tally ...........................................
+    @Test public void testTally(){
+        ArrayList<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Hedge");
+        votes.add("Hedge");
+        votes.add("Hedge");
+        votes.add("Hedge");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        Library tallyElectionTest = new Library();
+        assertEquals("expected winner is Hedge", "Hedge", tallyElectionTest.tally(votes));
+
     }
 }
