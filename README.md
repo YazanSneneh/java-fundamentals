@@ -48,6 +48,14 @@
 * linter application and associated tests to catch all errors.
 
   * reads a JavaScript file with a given Path.
-  * generates an error message whenever it finds a line that doesn’t end in a semi-colon. 
+  * generates an error message whenever it finds a line that doesn’t end in a semi-colon.
+
+# Class lab 04
+* Bitmap Transformer:
+  * a project that will open an image from computer.
+  * it will do a process in that image like following
+    * Darken or Lighten.
+    * Add or Multiply a Hue.
+  * export the image in a new file.
 
 
