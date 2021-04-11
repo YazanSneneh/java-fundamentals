@@ -59,3 +59,13 @@
   * export the image in a new file.
 
 
+# Class lab 06
+* Resturant class:
+  * a project that will have a resturant and review classes.
+  * have constructors.
+  * inheritance.
+  * it will do a process of getting and saving value to resturant and reviews.
+  * added required methods.
+  * invoke toString methods.
+
+
