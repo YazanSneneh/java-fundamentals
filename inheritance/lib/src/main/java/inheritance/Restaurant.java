@@ -9,6 +9,7 @@ public class Restaurant {
     private String name;
     private int numberOfStars;
     private double price;
+    private ArrayList<Review> reviewList = new ArrayList<>() ;
 
     //    .....................................constructor................................
     Restaurant(String name, int stars, double price){   // constructor
@@ -23,46 +24,26 @@ public class Restaurant {
         this.price = price;
     }
 
-    //    .....................................Setters and getters................................
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setNumberOfStars(int numberOfStars) {
-        if(numberOfStars >=0 && numberOfStars <=5){
-            this.numberOfStars = numberOfStars;
-        }else{
-            System.out.println("Number of starts should be between 0 and 5");
+    public void addReview(Review review){
+        if(!this.reviewList.contains(review)){
+            if( this.numberOfStars >=5){
+                this.numberOfStars =5;
+            }else if(this.numberOfStars <0){
+                this.numberOfStars = 0;
+            }else {
+                this.numberOfStars ++;
+            }
         }
-
+        this.reviewList.add(review);
     }
 
-    public int getNumberOfStars() {
-        return numberOfStars;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void addReview(){
-        int updated = this.getNumberOfStars()+1;
-        this.setNumberOfStars(updated);
-    }
     //    .....................................To String & other functions................................
     public String toString() {   // to string method
         return "Restaurant{" +
                 "name='" + name + '\'' +
-                ", numberOfStars=" + numberOfStars +
-                ", price=" + price +
+                ", number Of Stars=" + numberOfStars +
+                ", price=" + price +'\'' +
+                reviewList +
                 '}';
     }
 
