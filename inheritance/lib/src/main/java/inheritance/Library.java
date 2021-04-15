@@ -4,39 +4,20 @@
 package inheritance;
 
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
-    }
     public static void main(String[] args){
-        // Restaurant tests
-        Restaurant rammoony = new Restaurant("ramoony",0,20.5);
-
         // review tests
         Review review = new Review("wow, nice restaurant","Yazan",3);
         Review review2 = new Review("bad bad bad","ahmad",3);
         Review review3 = new Review("yukes, bad food","ibrahim",3);
 
-        // feature 4 and 5 tests
-        rammoony.addReview(review);
-        rammoony.addReview(review);
-        rammoony.addReview(review2);
-        rammoony.addReview(review3);
-        System.out.println(rammoony);
-//......................................... lab 7 .................................................
-        // shop tests
-        Shop hotBot = new Shop("Hot Bot","a digital shop for robots",0);
-        hotBot.addReview(review);
-        hotBot.addReview(review);
-        hotBot.addReview(review2);
-        System.out.println(hotBot);
-
-        // theater tests
-        Theater friends = new Theater("F.R.I.E.N.D.S");
-        ReviewMovie yazanReview = new ReviewMovie("I don't enjoy watching movies with people","Yazan",0,"1408");
-        friends.addMovie("Dead in Bed");
-        friends.addMovie("1408");
-        friends.removeMovie("1408");
-        friends.addReview(yazanReview);
-        System.out.println(friends);
+       // theater tests
+//        Theater friends = new Theater("F.R.I.E.N.D.S");
+//        System.out.println(friends);
+//        ReviewMovie yazanReview = new ReviewMovie("I don't enjoy watching movies with people","Yazan",0,"1408");
+//        friends.addMovie("Dead in Bed");
+//        friends.addMovie("1408");
+//        friends.removeMovie("1408");
+//        friends.addReview(yazanReview);
+//        System.out.println(friends);
     }
 }
