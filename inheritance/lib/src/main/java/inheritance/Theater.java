@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Theater {
+public class Theater  {
     String name;
     int numberOfStars;
     ArrayList<Review> reviewList = new ArrayList<>();

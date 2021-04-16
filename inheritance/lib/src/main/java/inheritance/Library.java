@@ -10,14 +10,13 @@ public class Library {
         Review review2 = new Review("bad bad bad","ahmad",3);
         Review review3 = new Review("yukes, bad food","ibrahim",3);
 
-       // theater tests
-//        Theater friends = new Theater("F.R.I.E.N.D.S");
-//        System.out.println(friends);
-//        ReviewMovie yazanReview = new ReviewMovie("I don't enjoy watching movies with people","Yazan",0,"1408");
-//        friends.addMovie("Dead in Bed");
-//        friends.addMovie("1408");
-//        friends.removeMovie("1408");
-//        friends.addReview(yazanReview);
-//        System.out.println(friends);
+
+        Theater friends = new Theater("F.R.I.E.N.D.S");
+        ReviewMovie yazanReview = new ReviewMovie("I don't enjoy watching movies with people","Yazan",0,"1408");
+        friends.addMovie("Dead in Bed");
+        friends.addMovie("1408");
+        friends.removeMovie("1408");
+        friends.addReview(yazanReview);
+        System.out.println(friends);
     }
 }

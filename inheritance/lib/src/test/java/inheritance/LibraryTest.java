@@ -7,6 +7,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
+
+
+//    .......................... Inheritance lab 6 & lab 7  tests...................................
     Restaurant resturant = new Restaurant("Indian Food", 0, 5.5);
     Review review = new Review("Missing tests and readme", "Yahya", 3);
     Shop hotBot = new Shop("Hot Bot", "a digital shop for robots", 0);
@@ -72,10 +75,13 @@ public class LibraryTest {
         hotBot.addReview(review2);
         assertEquals(" rating should not be changed if the same review added twice :", 3, hotBot.getNumberOfStars());
     }
-
+   // addReview() from theater addMovie removeMovie()
     @Test public void theaterToStringTest(){
-            // test toString()
-        assertEquals("Create object from Theater class using constructor and implement toString() : ", "Theater{name='F.R.I.E.N.D.S', reviewList=[], movies=[]}", friends.toString());
+            // test toString() and add review to theater
+        friends.addMovie("1408");
+        ReviewMovie review = new ReviewMovie("bad bad bad", "ahmad", 3,"1408");
+        friends.addReview(review);
+        assertEquals("Create object from Theater class using constructor and implement toString() : ", "Theater{name='F.R.I.E.N.D.S', reviewList=[ReviewMovie{movie='1408'body='bad bad bad', author='ahmad', numberOfStars=3'}], movies=[1408]}", friends.toString());
         }
 
         @Test public void addMovieTest(){

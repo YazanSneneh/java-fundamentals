@@ -5,7 +5,7 @@ import org.checkerframework.checker.units.qual.A;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 //extends Place
-public class Restaurant {
+public class Restaurant  {
     private String name;
     private int numberOfStars;
     private double price;
