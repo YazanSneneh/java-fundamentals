@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Theater {
+public class Theater  {
     String name;
     int numberOfStars;
     ArrayList<Review> reviewList = new ArrayList<>();
@@ -13,15 +13,46 @@ public class Theater {
     }
 
     public void addMovie(String movie){
-        System.out.println("added "+ movie);
           movies.add(movie);
     }
     public void removeMovie(String movie){
-        System.out.println("removed :" + movie);
+
           if(movies.remove(movie));
     }
     public void addReview(ReviewMovie review){
         reviewList.add(review);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(int numberOfStars) {
+        this.numberOfStars = numberOfStars;
+    }
+
+    public ArrayList<Review> getReviewList() {
+        return reviewList;
+    }
+
+    public void setReviewList(ArrayList<Review> reviewList) {
+        this.reviewList = reviewList;
+    }
+
+    public ArrayList<String> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(ArrayList<String> movies) {
+        this.movies = movies;
     }
 
     public String toString() {

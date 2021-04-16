@@ -28,7 +28,7 @@ public class Review {
 
     public String toString() {
 
-        return "" +
+        return "{" +
                 "body='" + body + '\'' +
                 ", author='" + author + '\'' +
                 ", number Of Stars=" + numberOfStars +'\'' +

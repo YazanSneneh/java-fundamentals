@@ -59,13 +59,33 @@
   * export the image in a new file.
 
 
-# Class lab 06
-* Resturant class:
-  * a project that will have a resturant and review classes.
-  * have constructors.
-  * inheritance.
-  * it will do a process of getting and saving value to resturant and reviews.
-  * added required methods.
-  * invoke toString methods.
+# Class lab 06 && lab 7
+* Each class I have, contain the following:
+  * A project that will have a resturant and review classes.
+  * Have constructors.
+  * Added review method.
+  * Invoke toString methods.
+
+#### Classes
+* All Shared code is included above.
+* list of classes I have and each one with it's unique method.
+  * Library
+    * The main class where everything is tested.
+  * Resturant
+  * Review
+    * `getBody()`
+    * `getAuthor()`
+    * `getNumberOfStars()`.
+  * ReviewMovie child of Review:
+    * `toString()` because it's inherited.
+  * Shop
+    * 
+  * Theater.
+    * `addMovie()`
+    * `removeMovie();`
+    * `addReview()` because i add a review with movie.
+
+
+
 
 

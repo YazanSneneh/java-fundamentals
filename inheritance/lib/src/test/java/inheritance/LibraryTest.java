@@ -7,8 +7,93 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
-        Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+
+
+//    .......................... Inheritance lab 6 & lab 7  tests...................................
+    Restaurant resturant = new Restaurant("Indian Food", 0, 5.5);
+    Review review = new Review("Missing tests and readme", "Yahya", 3);
+    Shop hotBot = new Shop("Hot Bot", "a digital shop for robots", 0);
+    Theater friends = new Theater("F.R.I.E.N.D.S");
+    @Test
+    public void resturantToStringTest() {
+        // test toString()
+        assertEquals("Create object from Resutrant class : ", "Restaurant{name='Indian Food', number Of Stars=0, price=5.5'[]}", resturant.toString());
+
+        // check if received review below 0
+        Restaurant resturant2 = new Restaurant("Indian Food", -5, 5.5);
+        assertEquals("expected 0", 0, resturant2.getNumberOfStars());
+
+        // check if rating is above 5
+        Restaurant resturant3 = new Restaurant("Indian Food", 6, 5.5);
+        assertEquals("expected 5", 5, resturant3.getNumberOfStars());
+    }
+
+    @Test
+    public void reviewToStringTest() {
+        // test toString()
+        assertEquals("Create object from Review class: ", "{body='Missing tests and readme', author='Yahya', number Of Stars=3'}", review.toString());
+    }
+
+    @Test
+    public void addReviewTest() {
+
+        // check if it associate review to restaurant
+        resturant.addReview(review);
+        assertEquals(" method should take in a Review instance, and associate that review with this Restaurant", "Restaurant{name='Indian Food', number Of Stars=1, price=5.5'[{body='Missing tests and readme', author='Yahya', number Of Stars=3'}]}", resturant.toString());
+
+        //check if method increase rating
+        Review review2 = new Review("bad bad bad", "ahmad", 3);
+        Review review3 = new Review("yukes, bad food", "ibrahim", 3);
+        resturant.addReview(review2);
+        resturant.addReview(review3);
+        assertEquals(" rating should be 3 now :", 3, resturant.getNumberOfStars());
+
+        // same review added twice does not increase rating
+        resturant.addReview(review2);
+        assertEquals(" rating should not be changed if the same review added twice :", 3, resturant.getNumberOfStars());
+    }
+
+    @Test
+    public void shopToStringTest() {
+        assertEquals("Create object from Shop class using constructor and implement toString() : ", "Shop{name='Hot Bot', description='a digital shop for robots', number of Stars=0}", hotBot.toString());
+    }
+
+    @Test public void addReviewShopTest() {
+        // check if it associate review to restaurant
+        hotBot.addReview(review);
+        assertEquals(" method should take in a Review instance, and associate that review with this Shop", "Shop{name='Hot Bot', description='a digital shop for robots', number of Stars=1}", hotBot.toString());
+
+        //check if method increase rating
+        Review review2 = new Review("bad bad bad", "ahmad", 3);
+        Review review3 = new Review("yukes, bad food", "ibrahim", 3);
+        hotBot.addReview(review2);
+        hotBot.addReview(review3);
+
+        assertEquals(" rating should be 3 now :", 3, hotBot.getNumberOfStars());
+
+      // same review added twice does not increase rating
+        hotBot.addReview(review2);
+        assertEquals(" rating should not be changed if the same review added twice :", 3, hotBot.getNumberOfStars());
+    }
+   // addReview() from theater addMovie removeMovie()
+    @Test public void theaterToStringTest(){
+            // test toString() and add review to theater
+        friends.addMovie("1408");
+        ReviewMovie review = new ReviewMovie("bad bad bad", "ahmad", 3,"1408");
+        friends.addReview(review);
+        assertEquals("Create object from Theater class using constructor and implement toString() : ", "Theater{name='F.R.I.E.N.D.S', reviewList=[ReviewMovie{movie='1408'body='bad bad bad', author='ahmad', numberOfStars=3'}], movies=[1408]}", friends.toString());
+        }
+
+        @Test public void addMovieTest(){
+         friends.addMovie("1408");
+            assertEquals("add 1408 movie to movies list implement toString() : ", "Theater{name='F.R.I.E.N.D.S', reviewList=[], movies=[1408]}", friends.toString());
+
+        }
+    @Test public void removeMovieTest(){
+        friends.addMovie("1408");
+        friends.removeMovie("1408");
+        friends.addMovie("Primal Fear");
+        assertEquals("remove 1408 and add Primal Fear and implement toString() : ", "Theater{name='F.R.I.E.N.D.S', reviewList=[], movies=[Primal Fear]}", friends.toString());
+
     }
 }
